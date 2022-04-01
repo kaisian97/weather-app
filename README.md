@@ -1,6 +1,15 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![codecov](https://codecov.io/gh/kaisian97/weather-app/branch/main/graph/badge.svg?token=5YKJE3RM7L)](https://codecov.io/gh/kaisian97/weather-app)
+
+This is a simple weather app.
+
+## Steps to start
+
+1. git clone https://github.com/kaisian97/weather-app.git
+2. cd weather-app
+3. yarn
+4. npm start
 
 ## Available Scripts
 
