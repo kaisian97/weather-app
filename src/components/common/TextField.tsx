@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, forwardRef, PropsWithoutRef } from "react";
-import { useController } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export interface TextFieldProps
   extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
@@ -25,13 +25,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     _
   ) => {
     const {
-      field: { onChange, onBlur, value, ref },
-      formState: { isSubmitting, errors },
-    } = useController({
-      name,
-      rules: { required },
-      defaultValue,
-    });
+      formState: { errors },
+      register,
+    } = useFormContext();
 
     return (
       <div {...outerProps}>
@@ -52,19 +48,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                   : "border-gray-300 focus:ring-orange-400 focus:border-orange-400"
               }`}
               aria-required={required}
+              aria-invalid={!!errors[name]}
               type={type}
-              disabled={isSubmitting}
               aria-label={label}
               {...props}
-              // {...register(name, { required })}
-              onChange={onChange} // send value to hook form
-              onBlur={onBlur}
-              value={value}
-              name={name}
-              ref={ref}
+              {...register(name, { required })}
             />
+
             <div className="flex">
-              <div className=""></div>
+              <div />
               {errors[name] && (
                 <div
                   role="alert"

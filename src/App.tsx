@@ -1,7 +1,7 @@
 import Weather from "components/home/Weather";
 import GetWeatherForm from "components/home/GetWeatherForm";
 import { Header } from "components/common";
-import SearchWeatherHistories from "components/home/WeatherHistories";
+import WeatherHistories from "components/home/WeatherHistories";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <GetWeatherForm />
       </div>
       <Weather />
-      <SearchWeatherHistories />
+      <WeatherHistories />
     </div>
   );
 }
